@@ -1,0 +1,68 @@
+﻿@model Enterprise.WebUI.ViewModels.CartSummaryViewModel
+<div id="cart" class="btn-group btn-block">
+    <button type="button" data-toggle="dropdown" class="btn btn-block btn-lg dropdown-toggle">
+        <i class="fa fa-shopping-cart"></i>
+        <span class="hidden-md">Cart:</span>
+        <span id="cart-total">@Model.ListCart.Count item(s) - $@Model.Total</span>
+        <i class="fa fa-caret-down"></i>
+    </button>
+    @if (Model.Total == 0)
+    {
+        <ul class="dropdown-menu">
+            <li>
+                <p class="text-center">Your shopping cart is empty!</p>
+            </li>
+        </ul>
+    }
+    else
+    {
+        <ul class="dropdown-menu pull-right">
+            <li>
+                <table class="table hcart">
+                    <tbody>
+                        @foreach (var item in @Model.ListCart)
+                        {
+                            <tr>
+                                <td class="text-center">
+                                    <a href="/MenuItem-@item.Name-@item.MenuItemId">
+                                        <img src="@item.ImageLocation" alt="@item.Name" title="@item.Name" class="img-thumbnail img-responsive">
+                                    </a>
+                                </td>
+                                <td class="text-left">
+                                    <a href="/MenuItem-@item.Name-@item.MenuItemId">
+                                        @item.Name
+                                    </a>
+                                </td>
+                                <td class="text-right">x @item.Count</td>
+                                <td class="text-right">$@item.UnitPrice</td>
+                                <td class="text-center">
+                                    <a href="#" onclick="RemoveFromCart('@item.MenuItemId')">
+                                        <i class="fa fa-times"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </li>
+            <li>
+                <table class="table table-bordered total">
+                    <tbody>
+                        <tr>
+                            <td class="text-right"><strong>Total</strong></td>
+                            <td class="text-left">$@Model.Total</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-right btn-block1">
+                    <a href="/ViewCart">
+                        View Cart
+                    </a>
+                    <a href="/CheckOut">
+                        Checkout
+                    </a>
+                </p>
+            </li>
+        </ul>
+    }
+</div>

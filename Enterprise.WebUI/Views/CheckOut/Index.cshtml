@@ -1,0 +1,124 @@
+﻿@model Enterprise.WebUI.ViewModels.CheckOutViewModel
+
+@{
+    ViewBag.Title = "Check out";
+}
+@if (Model.Total > 0)
+{
+    using (Html.BeginForm(null, null, FormMethod.Post, new { id = "checkoutForm" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal panel panel-smart">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    Shipment Information
+                </h3>
+            </div>
+            <div class="panel-body">
+                @Html.ValidationSummary(true)
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FullName, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.FullName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.FullName)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ContactTelephone, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.ContactTelephone, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ContactTelephone)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Email)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PostalCode, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.PostalCode, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.PostalCode)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.State, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.State, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.State)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.StreetAddress, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.StreetAddress, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.StreetAddress)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.City, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.City, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.City)
+                    </div>
+                </div>
+                <div class="form-group">
+                   <label class="control-label col-md-2">Total</label>
+                    <div class="col-md-10">
+                       <label class="control-label">$@Model.Total</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input id="btnCheckout" type="button" value="Checkout" class="btn btn-black" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <h2 class="main-heading text-center">
+        Your shopping cart is empty!
+    </h2>
+}
+@section scripts
+{
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        $('#btnCheckout').click(function (e) {
+            if ($('#checkoutForm').valid()) {
+                $.ajax({
+                    type: 'POST',
+                    data: $('#checkoutForm').serialize(),
+                    url: "/Checkout/Checkout",
+                    dataType: "json",
+                    success: function (response) {
+                        bootbox.alert(response.message, function () {
+                            if (response.success === true) {
+                                window.location.href = "/";
+                            }
+                        });
+                    },
+                    async: true,
+                    error: function (jqXHR, status, error) {
+
+                    }
+                });
+            }
+
+        });
+    </script>
+}

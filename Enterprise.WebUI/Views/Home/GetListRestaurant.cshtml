@@ -1,0 +1,5 @@
+﻿@model List<Enterprise.Logic.Entities.Restaurant>
+@foreach (var restaurant in @Model)
+{
+    <li><a href="/restaurant-@restaurant.Name-@restaurant.Id">@restaurant.Name</a></li>
+}

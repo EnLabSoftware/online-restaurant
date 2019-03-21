@@ -1,0 +1,33 @@
+﻿@model List<Enterprise.Logic.Entities.MenuItem>
+
+@if (Model.Count > 0)
+{
+    <h3 class="side-heading">Bestsellers</h3>
+}
+@foreach (var item in @Model)
+{
+    <div class="product-col">
+        <div class="image">
+            <img src="@item.ImageLocation" alt="@item.Name" class="img-responsive" />
+        </div>
+        <div class="caption">
+            <h4>
+                <a href="/MenuItem-@item.Name-@item.Id">@item.Name</a>
+            </h4>
+            @*<div class="description">
+                    We are so lucky living in such a wonderful time. Our almost unlimited ...
+                </div>*@
+            <div class="price">
+                <span class="price-new">$ @System.Math.Round(@item.Price.Value, 0)</span>
+                @*<span class="price-old">$249.50</span>*@
+            </div>
+            <div class="cart-button button-group">
+
+                <button type="button" class="btn btn-cart" onclick="AddToCart('@item.Id')">
+                    Add to cart
+                    <i class="fa fa-shopping-cart"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="en-US">
+  <Title Text="Dashboard" />
+  <DataConnections>
+    <DataConnection Name="vServer\SQLExpress_EnterpriseConnection" ProviderKey="MSSqlServer">
+      <Parameters>
+        <Parameter Name="server" Value="vServer\SQLExpress" />
+        <Parameter Name="database" Value="Enterprise.Database" />
+        <Parameter Name="useIntegratedSecurity" Value="True" />
+        <Parameter Name="read only" Value="1" />
+        <Parameter Name="generateConnectionHelper" Value="false" />
+      </Parameters>
+    </DataConnection>
+  </DataConnections>
+  <DataSources>
+    <DataSource ComponentName="dataSource1" Name="dashboardDB">
+      <DataProvider DataConnection="vServer\SQLExpress_EnterpriseConnection">
+        <Selection>
+          <Table Name="Order">
+            <Columns>
+              <Column Name="Id" Alias="Id" />
+              <Column Name="SubmittedDate" Alias="SubmittedDate" />
+              <Column Name="Total" Alias="Total" />
+              <Column Name="OrderStatusId" Alias="OrderStatusId" />
+            </Columns>
+          </Table>
+          <Table Name="OrderDetail">
+            <References>
+              <Reference Key="OrderId" ParentKey="Id" ParentTable="Order" />
+            </References>
+            <Columns>
+              <Column Name="Id" Alias="OrderDetail_Id" />
+              <Column Name="OrderId" Alias="OrderId" />
+              <Column Name="MenuItemId" Alias="MenuItemId" />
+              <Column Name="DeliveryId" Alias="DeliveryId" />
+              <Column Name="Quantity" Alias="Quantity" />
+              <Column Name="UnitCost" Alias="UnitCost" />
+              <Column Name="Status" Alias="Status" />
+            </Columns>
+          </Table>
+          <Table Name="MenuItem">
+            <References>
+              <Reference Key="Id" ParentKey="MenuItemId" ParentTable="OrderDetail" />
+            </References>
+            <Columns>
+              <Column Name="Id" Alias="MenuItem_Id" />
+              <Column Name="MenuId" Alias="MenuId" />
+              <Column Name="Name" Alias="Name" />
+              <Column Name="Price" Alias="Price" />
+            </Columns>
+          </Table>
+          <Table Name="Menu">
+            <References>
+              <Reference Key="Id" ParentKey="MenuId" ParentTable="MenuItem" />
+            </References>
+            <Columns>
+              <Column Name="Id" Alias="Menu_Id" />
+              <Column Name="RestaurantId" Alias="RestaurantId" />
+              <Column Name="MenuType" Alias="MenuType" />
+            </Columns>
+          </Table>
+          <Table Name="Restaurant">
+            <References>
+              <Reference Key="Id" ParentKey="RestaurantId" ParentTable="Menu" />
+            </References>
+            <Columns>
+              <Column Name="Id" Alias="Restaurant_Id" />
+              <Column Name="Name" Alias="Restaurant_Name" />
+            </Columns>
+          </Table>
+          <Filters>
+            <Filter TableName="Order" FilterString="" />
+          </Filters>
+        </Selection>
+      </DataProvider>
+    </DataSource>
+  </DataSources>
+  <Items>
+    <Chart ComponentName="chartDashboardItem1" Name="Chart 1" DataSource="dataSource1">
+      <InteractivityOptions MasterFilterMode="Single" IsDrillDownEnabled="true" TargetDimensions="Series" />
+      <DataItems>
+        <Measure DataMember="Total" UniqueName="DataItem0" />
+        <Dimension DataMember="SubmittedDate" UniqueName="DataItem1" />
+        <Dimension DataMember="Restaurant_Name" UniqueName="DataItem2" />
+        <Dimension DataMember="Restaurant_Name" UniqueName="DataItem3" />
+        <Dimension DataMember="MenuType" UniqueName="DataItem4" />
+        <Dimension DataMember="Name" UniqueName="DataItem5" />
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension UniqueName="DataItem3" />
+        <SeriesDimension UniqueName="DataItem4" />
+        <SeriesDimension UniqueName="DataItem5" />
+      </SeriesDimensions>
+      <Arguments>
+        <Argument UniqueName="DataItem1" />
+        <Argument UniqueName="DataItem2" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Pane 1">
+          <Series>
+            <Simple>
+              <Value UniqueName="DataItem0" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <RangeFilter ComponentName="rangeFilterDashboardItem1" Name="Range Filter 1" DataSource="dataSource1">
+      <DataItems>
+        <Measure DataMember="Total" UniqueName="DataItem0" />
+        <Dimension DataMember="SubmittedDate" UniqueName="DataItem1" />
+      </DataItems>
+      <Argument UniqueName="DataItem1" />
+      <Series>
+        <Simple SeriesType="Line">
+          <Value UniqueName="DataItem0" />
+        </Simple>
+      </Series>
+    </RangeFilter>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup Orientation="Vertical">
+      <LayoutItem DashboardItem="chartDashboardItem1" Weight="49.939098660170522" />
+      <LayoutItem DashboardItem="rangeFilterDashboardItem1" Weight="50.060901339829478" />
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

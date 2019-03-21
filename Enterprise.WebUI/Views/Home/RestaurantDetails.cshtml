@@ -1,0 +1,73 @@
+﻿@model Enterprise.WebUI.ViewModels.RestaurantDetailsViewModel
+@{
+    ViewBag.Title = Model.Restaurant.Name;
+}
+
+<div class="row">
+    @foreach (var menuItem in @Model.ListMenuItems)
+    {
+
+        <div class="col-md-4 col-sm-6">
+            <div class="product-col">
+                <div class="image">
+                    <img src="@menuItem.ImageLocation" alt="@menuItem.Name" class="img-responsive" />
+                </div>
+                <div class="caption">
+                    <h4><a href="/MenuItem-@menuItem.Name-@menuItem.Id">@menuItem.Name</a></h4>
+                    @*<div class="description">
+                            We are so lucky living in such a wonderful time. Our almost unlimited ...
+                        </div>*@
+                    <div class="price">
+                        <span class="price-new">$ @System.Math.Round(@menuItem.Price.Value,0)</span>
+                        @*<span class="price-old">$249.50</span>*@
+                    </div>
+                    <div class="cart-button">
+                        <button type="button" class="btn btn-cart btnAddToCart" onclick="AddToCart(@menuItem.Id)">
+                            Add to cart
+                            <i class="fa fa-shopping-cart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div id="menuItemPagination"></div>
+
+@section SlideBar{
+
+    <!-- Categories Links Starts -->
+    <h3 class="side-heading">Menu</h3>
+    <div class="list-group categories">
+        @foreach (var menu in @Model.ListMenu)
+        {
+            <a href="/Restaurant-@Model.Restaurant.Name-@Model.Restaurant.Id/@menu.MenuType-@menu.Id" class="list-group-item">
+                <i class="fa fa-chevron-right"></i>
+                @menu.MenuType
+            </a>
+        }
+    </div>
+    <!-- Categories Links Ends -->
+}
+
+@section scripts
+{
+    <script>
+        $('#menuItemPagination').bootpag({
+            total: '@Model.TotalPage',
+            page: '@Model.CurrentPage',
+            maxVisible: 10
+        }).on('page', function (event, num) {
+            debugger;
+            var currentPage = window.location.href;
+            //if current page dont have page parameter
+            var pageIndex = currentPage.indexOf("/page-");
+            if (pageIndex > 0) {
+                currentPage = currentPage.substring(0, pageIndex-1);
+
+            }
+            currentPage += "/page-" + num;
+            window.location.href = currentPage;
+        });
+    </script>
+}

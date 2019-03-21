@@ -1,0 +1,4 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" 
+    Service="Enterprise.Services.CustomerService" 
+    Factory="Enterprise.Services.StructureMapServiceHostFactory"
+    CodeBehind="CustomerService.svc.cs" %>

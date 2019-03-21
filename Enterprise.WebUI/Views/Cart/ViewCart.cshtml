@@ -1,0 +1,92 @@
+﻿@model Enterprise.WebUI.ViewModels.CartSummaryViewModel
+@{
+    decimal total = 0;
+}
+@if (Model.Total > 0)
+{
+    <h2 class="main-heading text-center">
+        Shopping Cart
+    </h2>
+    <div class="table-responsive shopping-cart-table">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <td class="text-center">
+                        Image
+                    </td>
+                    <td class="text-center">
+                        Name
+                    </td>
+                    <td class="text-center">
+                        Quantity
+                    </td>
+                    <td class="text-center">
+                        Price
+                    </td>
+                    <td class="text-center">
+                        Total
+                    </td>
+                    <td class="text-center">
+                        Delete
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in @Model.ListCart)
+                {
+                    <tr>
+                        <td class="text-center">
+                            <a href="product.html">
+                                <img src="@item.ImageLocation" alt="@item.Name" title="@item.Name" class="img-thumbnail">
+                            </a>
+                        </td>
+                        <td class="text-center">
+                            <a href="product-full.html">@item.Name</a>
+                        </td>
+                        <td class="text-center">
+                            <div class="input-group btn-block">
+                                <input type="number" name="quantity" value="@item.Count" min="1" max="99" onkeypress="onNumberOfProductPress(event,@item.MenuItemId)" size="1" class="form-control number-only">
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            $@item.UnitPrice
+                        </td>
+                        <td class="text-center">
+                            @{total = item.UnitPrice.Value * item.Count.Value;}
+                            $@total
+                        </td>
+                        <td class="text-center">
+                            @*<button type="submit" title="" class="btn btn-default tool-tip" data-original-title="Update">
+                                    <i class="fa fa-refresh"></i>
+                                </button>*@
+                            <button type="button" title="" class="btn btn-default tool-tip" data-original-title="Remove" onclick="RemoveFromCart('@item.MenuItemId',true)">
+                                <i class="fa fa-times-circle"></i>
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" class="text-right">
+                        <strong>Total :</strong>
+                    </td>
+                    <td colspan="2" class="text-left">
+                        $@Model.Total
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6" class="text-right">
+                        <a href="/Checkout" class="btn btn-black">Check Out</a>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+}
+else
+{
+    <h2 class="main-heading text-center">
+        Your shopping cart is empty!
+    </h2>
+}

@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MenuService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:23618/MenuService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:23618/MenuService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:23618/MenuService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Enterprise.Logic.Entities" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMenuService_GetMenus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMenus" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_GetMenus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMenusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_GetMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMenu" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_GetMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_GetCompleteMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompleteMenu" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_GetCompleteMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompleteMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_AddMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddMenu" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_AddMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_UpdateMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMenu" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_UpdateMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_DeleteMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMenu" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_DeleteMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_GetMenusByRestaurant_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMenusByRestaurant" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_GetMenusByRestaurant_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMenusByRestaurantResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_GetMenuItemByRestaurant_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMenuItemByRestaurant" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_GetMenuItemByRestaurant_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMenuItemByRestaurantResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_GetByRestaurantTotalCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByRestaurantTotalCount" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_GetByRestaurantTotalCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByRestaurantTotalCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_GetMenuItemByMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMenuItemByMenu" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_GetMenuItemByMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMenuItemByMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_GetMenuItemsByPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMenuItemsByPage" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_GetMenuItemsByPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMenuItemsByPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_GetTotalMenuItemCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTotalMenuItemCount" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_GetTotalMenuItemCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTotalMenuItemCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_GetBestSeller_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBestSeller" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_GetBestSeller_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBestSellerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_GetMenuItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMenuItem" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_GetMenuItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMenuItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_GetRelatedMenuItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRelatedMenuItem" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_GetRelatedMenuItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRelatedMenuItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_GetMenuItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMenuItems" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_GetMenuItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMenuItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_GetMenuItemModels_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMenuItemModels" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_GetMenuItemModels_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMenuItemModelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_AddMenuItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddMenuItem" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_AddMenuItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddMenuItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_UpdateMenuItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMenuItem" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_UpdateMenuItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMenuItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_DeleteMenuItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMenuItem" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_DeleteMenuItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMenuItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_IsMenuHaveMenuItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsMenuHaveMenuItem" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_IsMenuHaveMenuItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsMenuHaveMenuItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_GetMenuItemModelByMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMenuItemModelByMenu" />
+  </wsdl:message>
+  <wsdl:message name="IMenuService_GetMenuItemModelByMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMenuItemModelByMenuResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IMenuService">
+    <wsdl:operation name="GetMenus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMenuService/GetMenus" message="tns:IMenuService_GetMenus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMenuService/GetMenusResponse" message="tns:IMenuService_GetMenus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMenuService/GetMenu" message="tns:IMenuService_GetMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMenuService/GetMenuResponse" message="tns:IMenuService_GetMenu_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompleteMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMenuService/GetCompleteMenu" message="tns:IMenuService_GetCompleteMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMenuService/GetCompleteMenuResponse" message="tns:IMenuService_GetCompleteMenu_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMenuService/AddMenu" message="tns:IMenuService_AddMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMenuService/AddMenuResponse" message="tns:IMenuService_AddMenu_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMenuService/UpdateMenu" message="tns:IMenuService_UpdateMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMenuService/UpdateMenuResponse" message="tns:IMenuService_UpdateMenu_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMenuService/DeleteMenu" message="tns:IMenuService_DeleteMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMenuService/DeleteMenuResponse" message="tns:IMenuService_DeleteMenu_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenusByRestaurant">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMenuService/GetMenusByRestaurant" message="tns:IMenuService_GetMenusByRestaurant_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMenuService/GetMenusByRestaurantResponse" message="tns:IMenuService_GetMenusByRestaurant_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuItemByRestaurant">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMenuService/GetMenuItemByRestaurant" message="tns:IMenuService_GetMenuItemByRestaurant_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMenuService/GetMenuItemByRestaurantResponse" message="tns:IMenuService_GetMenuItemByRestaurant_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByRestaurantTotalCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMenuService/GetByRestaurantTotalCount" message="tns:IMenuService_GetByRestaurantTotalCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMenuService/GetByRestaurantTotalCountResponse" message="tns:IMenuService_GetByRestaurantTotalCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuItemByMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMenuService/GetMenuItemByMenu" message="tns:IMenuService_GetMenuItemByMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMenuService/GetMenuItemByMenuResponse" message="tns:IMenuService_GetMenuItemByMenu_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuItemsByPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMenuService/GetMenuItemsByPage" message="tns:IMenuService_GetMenuItemsByPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMenuService/GetMenuItemsByPageResponse" message="tns:IMenuService_GetMenuItemsByPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTotalMenuItemCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMenuService/GetTotalMenuItemCount" message="tns:IMenuService_GetTotalMenuItemCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMenuService/GetTotalMenuItemCountResponse" message="tns:IMenuService_GetTotalMenuItemCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBestSeller">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMenuService/GetBestSeller" message="tns:IMenuService_GetBestSeller_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMenuService/GetBestSellerResponse" message="tns:IMenuService_GetBestSeller_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMenuService/GetMenuItem" message="tns:IMenuService_GetMenuItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMenuService/GetMenuItemResponse" message="tns:IMenuService_GetMenuItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRelatedMenuItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMenuService/GetRelatedMenuItem" message="tns:IMenuService_GetRelatedMenuItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMenuService/GetRelatedMenuItemResponse" message="tns:IMenuService_GetRelatedMenuItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMenuService/GetMenuItems" message="tns:IMenuService_GetMenuItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMenuService/GetMenuItemsResponse" message="tns:IMenuService_GetMenuItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuItemModels">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMenuService/GetMenuItemModels" message="tns:IMenuService_GetMenuItemModels_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMenuService/GetMenuItemModelsResponse" message="tns:IMenuService_GetMenuItemModels_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMenuItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMenuService/AddMenuItem" message="tns:IMenuService_AddMenuItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMenuService/AddMenuItemResponse" message="tns:IMenuService_AddMenuItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMenuItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMenuService/UpdateMenuItem" message="tns:IMenuService_UpdateMenuItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMenuService/UpdateMenuItemResponse" message="tns:IMenuService_UpdateMenuItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMenuItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMenuService/DeleteMenuItem" message="tns:IMenuService_DeleteMenuItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMenuService/DeleteMenuItemResponse" message="tns:IMenuService_DeleteMenuItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsMenuHaveMenuItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMenuService/IsMenuHaveMenuItem" message="tns:IMenuService_IsMenuHaveMenuItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMenuService/IsMenuHaveMenuItemResponse" message="tns:IMenuService_IsMenuHaveMenuItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuItemModelByMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMenuService/GetMenuItemModelByMenu" message="tns:IMenuService_GetMenuItemModelByMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMenuService/GetMenuItemModelByMenuResponse" message="tns:IMenuService_GetMenuItemModelByMenu_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MenuServiceBasicEndpoint" type="tns:IMenuService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMenus">
+      <soap:operation soapAction="http://tempuri.org/IMenuService/GetMenus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenu">
+      <soap:operation soapAction="http://tempuri.org/IMenuService/GetMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompleteMenu">
+      <soap:operation soapAction="http://tempuri.org/IMenuService/GetCompleteMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMenu">
+      <soap:operation soapAction="http://tempuri.org/IMenuService/AddMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMenu">
+      <soap:operation soapAction="http://tempuri.org/IMenuService/UpdateMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMenu">
+      <soap:operation soapAction="http://tempuri.org/IMenuService/DeleteMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenusByRestaurant">
+      <soap:operation soapAction="http://tempuri.org/IMenuService/GetMenusByRestaurant" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuItemByRestaurant">
+      <soap:operation soapAction="http://tempuri.org/IMenuService/GetMenuItemByRestaurant" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByRestaurantTotalCount">
+      <soap:operation soapAction="http://tempuri.org/IMenuService/GetByRestaurantTotalCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuItemByMenu">
+      <soap:operation soapAction="http://tempuri.org/IMenuService/GetMenuItemByMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuItemsByPage">
+      <soap:operation soapAction="http://tempuri.org/IMenuService/GetMenuItemsByPage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTotalMenuItemCount">
+      <soap:operation soapAction="http://tempuri.org/IMenuService/GetTotalMenuItemCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBestSeller">
+      <soap:operation soapAction="http://tempuri.org/IMenuService/GetBestSeller" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuItem">
+      <soap:operation soapAction="http://tempuri.org/IMenuService/GetMenuItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRelatedMenuItem">
+      <soap:operation soapAction="http://tempuri.org/IMenuService/GetRelatedMenuItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuItems">
+      <soap:operation soapAction="http://tempuri.org/IMenuService/GetMenuItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuItemModels">
+      <soap:operation soapAction="http://tempuri.org/IMenuService/GetMenuItemModels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMenuItem">
+      <soap:operation soapAction="http://tempuri.org/IMenuService/AddMenuItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMenuItem">
+      <soap:operation soapAction="http://tempuri.org/IMenuService/UpdateMenuItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMenuItem">
+      <soap:operation soapAction="http://tempuri.org/IMenuService/DeleteMenuItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsMenuHaveMenuItem">
+      <soap:operation soapAction="http://tempuri.org/IMenuService/IsMenuHaveMenuItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuItemModelByMenu">
+      <soap:operation soapAction="http://tempuri.org/IMenuService/GetMenuItemModelByMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MenuService">
+    <wsdl:port name="MenuServiceBasicEndpoint" binding="tns:MenuServiceBasicEndpoint">
+      <soap:address location="http://localhost:23618/MenuService.svc/basic" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

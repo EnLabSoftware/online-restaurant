@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CartService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:23618/CartService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:23618/CartService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:23618/CartService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Enterprise.Logic.Entities" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICartService_RemoveFromCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveFromCart" />
+  </wsdl:message>
+  <wsdl:message name="ICartService_RemoveFromCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveFromCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICartService_AddToCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddToCart" />
+  </wsdl:message>
+  <wsdl:message name="ICartService_AddToCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddToCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICartService_CheckOut_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckOut" />
+  </wsdl:message>
+  <wsdl:message name="ICartService_CheckOut_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckOutResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICartService_GetCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCart" />
+  </wsdl:message>
+  <wsdl:message name="ICartService_GetCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICartService_EmptyCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:EmptyCart" />
+  </wsdl:message>
+  <wsdl:message name="ICartService_EmptyCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EmptyCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICartService_GetTotal_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTotal" />
+  </wsdl:message>
+  <wsdl:message name="ICartService_GetTotal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTotalResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICartService_MigrateCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:MigrateCart" />
+  </wsdl:message>
+  <wsdl:message name="ICartService_MigrateCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MigrateCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICartService_GetOrderModel_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderModel" />
+  </wsdl:message>
+  <wsdl:message name="ICartService_GetOrderModel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderModelResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICartService_GetListOrderDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOrderDetail" />
+  </wsdl:message>
+  <wsdl:message name="ICartService_GetListOrderDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOrderDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICartService_UpdateOrderDetailQuantity_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrderDetailQuantity" />
+  </wsdl:message>
+  <wsdl:message name="ICartService_UpdateOrderDetailQuantity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrderDetailQuantityResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICartService_GetOrderStatuses_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderStatuses" />
+  </wsdl:message>
+  <wsdl:message name="ICartService_GetOrderStatuses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderStatusesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICartService_GetOrders_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrders" />
+  </wsdl:message>
+  <wsdl:message name="ICartService_GetOrders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICartService_UpdateOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrder" />
+  </wsdl:message>
+  <wsdl:message name="ICartService_UpdateOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICartService_DeleteOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrder" />
+  </wsdl:message>
+  <wsdl:message name="ICartService_DeleteOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICartService_DeleteOrderDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrderDetails" />
+  </wsdl:message>
+  <wsdl:message name="ICartService_DeleteOrderDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrderDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICartService_GetOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrder" />
+  </wsdl:message>
+  <wsdl:message name="ICartService_GetOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICartService">
+    <wsdl:operation name="RemoveFromCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICartService/RemoveFromCart" message="tns:ICartService_RemoveFromCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICartService/RemoveFromCartResponse" message="tns:ICartService_RemoveFromCart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddToCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICartService/AddToCart" message="tns:ICartService_AddToCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICartService/AddToCartResponse" message="tns:ICartService_AddToCart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckOut">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICartService/CheckOut" message="tns:ICartService_CheckOut_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICartService/CheckOutResponse" message="tns:ICartService_CheckOut_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICartService/GetCart" message="tns:ICartService_GetCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICartService/GetCartResponse" message="tns:ICartService_GetCart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmptyCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICartService/EmptyCart" message="tns:ICartService_EmptyCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICartService/EmptyCartResponse" message="tns:ICartService_EmptyCart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTotal">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICartService/GetTotal" message="tns:ICartService_GetTotal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICartService/GetTotalResponse" message="tns:ICartService_GetTotal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MigrateCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICartService/MigrateCart" message="tns:ICartService_MigrateCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICartService/MigrateCartResponse" message="tns:ICartService_MigrateCart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderModel">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICartService/GetOrderModel" message="tns:ICartService_GetOrderModel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICartService/GetOrderModelResponse" message="tns:ICartService_GetOrderModel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOrderDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICartService/GetListOrderDetail" message="tns:ICartService_GetListOrderDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICartService/GetListOrderDetailResponse" message="tns:ICartService_GetListOrderDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrderDetailQuantity">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICartService/UpdateOrderDetailQuantity" message="tns:ICartService_UpdateOrderDetailQuantity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICartService/UpdateOrderDetailQuantityResponse" message="tns:ICartService_UpdateOrderDetailQuantity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderStatuses">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICartService/GetOrderStatuses" message="tns:ICartService_GetOrderStatuses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICartService/GetOrderStatusesResponse" message="tns:ICartService_GetOrderStatuses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrders">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICartService/GetOrders" message="tns:ICartService_GetOrders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICartService/GetOrdersResponse" message="tns:ICartService_GetOrders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICartService/UpdateOrder" message="tns:ICartService_UpdateOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICartService/UpdateOrderResponse" message="tns:ICartService_UpdateOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICartService/DeleteOrder" message="tns:ICartService_DeleteOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICartService/DeleteOrderResponse" message="tns:ICartService_DeleteOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrderDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICartService/DeleteOrderDetails" message="tns:ICartService_DeleteOrderDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICartService/DeleteOrderDetailsResponse" message="tns:ICartService_DeleteOrderDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICartService/GetOrder" message="tns:ICartService_GetOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICartService/GetOrderResponse" message="tns:ICartService_GetOrder_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CartServiceBasicEndpoint" type="tns:ICartService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RemoveFromCart">
+      <soap:operation soapAction="http://tempuri.org/ICartService/RemoveFromCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddToCart">
+      <soap:operation soapAction="http://tempuri.org/ICartService/AddToCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckOut">
+      <soap:operation soapAction="http://tempuri.org/ICartService/CheckOut" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCart">
+      <soap:operation soapAction="http://tempuri.org/ICartService/GetCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmptyCart">
+      <soap:operation soapAction="http://tempuri.org/ICartService/EmptyCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTotal">
+      <soap:operation soapAction="http://tempuri.org/ICartService/GetTotal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MigrateCart">
+      <soap:operation soapAction="http://tempuri.org/ICartService/MigrateCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderModel">
+      <soap:operation soapAction="http://tempuri.org/ICartService/GetOrderModel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOrderDetail">
+      <soap:operation soapAction="http://tempuri.org/ICartService/GetListOrderDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrderDetailQuantity">
+      <soap:operation soapAction="http://tempuri.org/ICartService/UpdateOrderDetailQuantity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderStatuses">
+      <soap:operation soapAction="http://tempuri.org/ICartService/GetOrderStatuses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrders">
+      <soap:operation soapAction="http://tempuri.org/ICartService/GetOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrder">
+      <soap:operation soapAction="http://tempuri.org/ICartService/UpdateOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrder">
+      <soap:operation soapAction="http://tempuri.org/ICartService/DeleteOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrderDetails">
+      <soap:operation soapAction="http://tempuri.org/ICartService/DeleteOrderDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrder">
+      <soap:operation soapAction="http://tempuri.org/ICartService/GetOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CartService">
+    <wsdl:port name="CartServiceBasicEndpoint" binding="tns:CartServiceBasicEndpoint">
+      <soap:address location="http://localhost:23618/CartService.svc/basic" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

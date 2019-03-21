@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="20b9eb1f5f174c28996d02071c1bd069" Name="Diagram1">
+        <EntityTypeShape EntityType="EnterpriseModel.C__RefactorLog" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="EnterpriseModel.Cart" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="EnterpriseModel.Customer" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="EnterpriseModel.Menu" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="EnterpriseModel.MenuItem" Width="1.5" PointX="2.75" PointY="5.75" />
+        <EntityTypeShape EntityType="EnterpriseModel.Order" Width="1.5" PointX="4.75" PointY="5.75" />
+        <EntityTypeShape EntityType="EnterpriseModel.OrderDetail" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="EnterpriseModel.OrderPayment" Width="1.5" PointX="6.75" PointY="4.75" />
+        <EntityTypeShape EntityType="EnterpriseModel.OrderStatus" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="EnterpriseModel.Restaurant" Width="1.5" PointX="8.75" PointY="3.75" />
+        <EntityTypeShape EntityType="EnterpriseModel.RestaurantCategory" Width="1.5" PointX="6.75" PointY="8.75" />
+        <EntityTypeShape EntityType="EnterpriseModel.Staff" Width="1.5" PointX="8.75" PointY="8.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

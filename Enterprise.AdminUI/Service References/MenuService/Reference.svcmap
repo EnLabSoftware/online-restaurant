@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c2b45c79-c489-42da-adac-1af64c2fa2a4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="Enterprise.Logic" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:23618/MenuService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MenuService.xsd" MetadataType="Schema" ID="4b31ce96-bb79-488c-8f83-33c8b480b136" SourceId="1" SourceUrl="http://localhost:23618/MenuService.svc?xsd=xsd1" />
+    <MetadataFile FileName="MenuService1.xsd" MetadataType="Schema" ID="e4ef3f09-9d73-4654-bf7e-069abd5b7672" SourceId="1" SourceUrl="http://localhost:23618/MenuService.svc?xsd=xsd2" />
+    <MetadataFile FileName="MenuService.disco" MetadataType="Disco" ID="8e689709-9080-4af3-a99d-553cd98b67f3" SourceId="1" SourceUrl="http://localhost:23618/MenuService.svc?disco" />
+    <MetadataFile FileName="MenuService.wsdl" MetadataType="Wsdl" ID="0adf7dcc-0348-4704-81b5-bc01c635e519" SourceId="1" SourceUrl="http://localhost:23618/MenuService.svc?wsdl" />
+    <MetadataFile FileName="MenuService2.xsd" MetadataType="Schema" ID="e0191e4d-ea09-485f-a350-3b698e8b38f3" SourceId="1" SourceUrl="http://localhost:23618/MenuService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

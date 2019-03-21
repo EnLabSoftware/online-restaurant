@@ -1,0 +1,264 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>@ViewBag.Title</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+    <!-- Google Web Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Oswald:400,700,300" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,700,300,600,800,400" rel="stylesheet" type="text/css">
+
+    <!-- CSS Files -->
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/Style.css" rel="stylesheet" />
+    <link href="http://ecommerceforest.com/wrap/shoppe-stores-v2.3/demos/electro-shoppe/css/responsive.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+        <script src="js/ie8-responsive-file-warning.js"></script>
+    <![endif]-->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="~/Scripts/respond.min.js"></script>
+    <![endif]-->
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/fav-144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/fav-114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/fav-72.png">
+    <link rel="apple-touch-icon-precomposed" href="images/fav-57.png">
+    <link rel="shortcut icon" href="images/fav.png">
+
+</head>
+<body>
+    <!-- Header Section Starts -->
+    <header id="header-area">
+        
+        
+        <!-- Main Header Starts -->
+        <div class="main-header">
+            <div class="container">
+                <div class="row">
+                    <!-- Search Starts -->
+                    <div class="col-md-3">
+                        <div id="search">
+                            <div class="input-group">
+                                <input type="text" class="form-control input-lg" placeholder="Search">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-lg" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Search Ends -->
+                    <!-- Logo Starts -->
+                    <div class="col-md-6">
+                        @*<div id="logo">
+                            <a href="index.html"><img src="images/logo.png" title="Spice Shoppe" alt="Spice Shoppe" class="img-responsive" /></a>
+                        </div>*@
+                    </div>
+                    <!-- Logo Starts -->
+                    <!-- Shopping Cart Starts -->
+                    <div class="col-md-3">
+                        @*<ul class="dropdown-menu">
+                                <li>
+                                    <p class="text-center">Your shopping cart is empty!</p>
+                                </li>
+                            </ul>*@
+                        <div id="cartSummary">
+                            @Html.Action("CartSummary", "Cart")
+                        </div>
+
+                    </div>
+                    <!-- Shopping Cart Ends -->
+                </div>
+            </div>
+        </div>
+        <!-- Main Header Ends -->
+        <!-- Main Menu Starts -->
+        <nav id="main-menu" class="navbar" role="navigation">
+            <div class="container">
+                <!-- Nav Header Starts -->
+                <div class="navbar-header">
+                    <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-cat-collapse">
+                        <span class="sr-only">Toggle Navigation</span>
+                        <i class="fa fa-bars"></i>
+                    </button>
+                </div>
+                <!-- Nav Header Ends -->
+                <!-- Navbar Cat collapse Starts -->
+                <div class="collapse navbar-collapse navbar-cat-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/">Home </a></li>
+                        @Html.Action("GetListRestaurant", "Home")
+                    </ul>
+                </div>
+                <!-- Navbar Cat collapse Ends -->
+            </div>
+        </nav>
+        <!-- Main Menu Ends -->
+    </header>
+    <!-- Header Section Ends -->
+    <!-- Main Container Starts -->
+    <div id="main-container" class="container">
+        <div class="row">
+
+            <!-- Sidebar Starts -->
+            <div class="col-md-3">
+                @RenderSection("SlideBar", false)
+                <!-- Bestsellers Links Starts -->
+                @Html.Action("GetBestSeller", "Home")
+                <!-- Bestsellers Links Ends -->
+            </div>
+            <!-- Sidebar Ends -->
+            <!-- Primary Content Starts -->
+            <div class="col-md-9">
+                <ol class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    @*<li class="active">Spices &amp; Herbs</li>*@
+                </ol>
+                @RenderBody()
+            </div>
+            <!-- Primary Content Ends -->
+        </div>
+    </div>
+    <!-- Main Container Ends -->
+    <!-- Footer Section Starts -->
+    <footer id="footer-area">
+        <!-- Footer Links Starts -->
+        <div class="footer-links">
+            <!-- Container Starts -->
+            <div class="container">
+                <!-- Information Links Starts -->
+                <div class="col-md-2 col-sm-6">
+                    <h5>Information</h5>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Delivery Information</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms &amp; Conditions</a></li>
+                    </ul>
+                </div>
+                <!-- Information Links Ends -->
+                <!-- My Account Links Starts -->
+                <div class="col-md-2 col-sm-6">
+                    <h5>My Account</h5>
+                    <ul>
+                        <li><a href="#">My orders</a></li>
+                        <li><a href="#">My merchandise returns</a></li>
+                        <li><a href="#">My credit slips</a></li>
+                        <li><a href="#">My addresses</a></li>
+                        <li><a href="#">My personal info</a></li>
+                    </ul>
+                </div>
+                <!-- My Account Links Ends -->
+                <!-- Customer Service Links Starts -->
+                <div class="col-md-2 col-sm-6">
+                    <h5>Service</h5>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Site Map</a></li>
+                        <li><a href="#">Affiliates</a></li>
+                        <li><a href="#">Specials</a></li>
+                    </ul>
+                </div>
+                <!-- Customer Service Links Ends -->
+                <!-- Follow Us Links Starts -->
+                <div class="col-md-2 col-sm-6">
+                    <h5>Follow Us</h5>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">RSS</a></li>
+                        <li><a href="#">YouTube</a></li>
+                    </ul>
+                </div>
+                <!-- Follow Us Links Ends -->
+                <!-- Contact Us Starts -->
+                <div class="col-md-4 col-sm-12 last">
+                    <h5>Contact Us</h5>
+                    <ul>
+                        <li>My Company</li>
+                        <li>
+                            My Street
+                        </li>
+                        <li>
+                            Email: <a href="#">info@demo.com</a>
+                        </li>
+                    </ul>
+                    <h4 class="lead">
+                        Tel: <span>1(111) 111-1111</span>
+                    </h4>
+                </div>
+                <!-- Contact Us Ends -->
+            </div>
+            <!-- Container Ends -->
+        </div>
+        <!-- Footer Links Ends -->
+        <!-- Copyright Area Starts -->
+        <div class="copyright">
+            <!-- Container Starts -->
+            <div class="container">
+                <!-- Starts -->
+                <p class="pull-left">
+                    &copy; 2015 Enterprise Lab</a>
+                </p>
+                <!-- Ends -->
+                <!-- Payment Gateway Links Starts -->
+                <ul class="pull-right list-inline">
+                    <li>
+                        <img src="http://ecommerceforest.com/wrap/shoppe-stores-v2.3/demos/electro-shoppe/images/payment-icon/cirrus.png" alt="PaymentGateway" />
+                    </li>
+                    <li>
+                        <img src="http://ecommerceforest.com/wrap/shoppe-stores-v2.3/demos/electro-shoppe/images/payment-icon/paypal.png" alt="PaymentGateway" />
+                    </li>
+                    <li>
+                        <img src="http://ecommerceforest.com/wrap/shoppe-stores-v2.3/demos/electro-shoppe/images/payment-icon/visa.png" alt="PaymentGateway" />
+                    </li>
+                    <li>
+                        <img src="http://ecommerceforest.com/wrap/shoppe-stores-v2.3/demos/electro-shoppe/images/payment-icon/mastercard.png" alt="PaymentGateway" />
+                    </li>
+                    <li>
+                        <img src="http://ecommerceforest.com/wrap/shoppe-stores-v2.3/demos/electro-shoppe/images/payment-icon/americanexpress.png" alt="PaymentGateway" />
+                    </li>
+                </ul>
+                <!-- Payment Gateway Links Ends -->
+            </div>
+            <!-- Container Ends -->
+        </div>
+        <!-- Copyright Area Ends -->
+    </footer>
+
+    <!-- Footer Section Ends -->
+    <!-- JavaScript Files -->
+    <script src="~/Scripts/jquery-2.1.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/global.js"></script>
+    <script src="http://ecommerceforest.com/wrap/shoppe-stores-v2.3/demos/electro-shoppe/js/bootstrap-hover-dropdown.min.js"></script>
+    <script src="http://ecommerceforest.com/wrap/shoppe-stores-v2.3/demos/electro-shoppe/js/jquery.magnific-popup.min.js"></script>
+    <script src="http://ecommerceforest.com/wrap/shoppe-stores-v2.3/demos/electro-shoppe/js/owl.carousel.min.js"></script>
+    <script src="http://ecommerceforest.com/wrap/shoppe-stores-v2.3/demos/electro-shoppe/js/custom.js"></script>
+    <script src="~/Scripts/bootbox.min.js"></script>
+    <script src="~/Scripts/jquery.bootpag.min.js"></script>
+    <script src="~/Scripts/cart.js"></script>
+    @RenderSection("scripts", false);
+</body>
+</html>

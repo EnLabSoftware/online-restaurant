@@ -1,0 +1,51 @@
+﻿@model Enterprise.WebUI.ViewModels.HomePageViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    @foreach (var menuItem in @Model.ListMenuItems)
+    {
+
+        <div class="col-md-4 col-sm-6">
+            <div class="product-col">
+                <div class="image">
+                    <img src="@menuItem.ImageLocation" alt="@menuItem.Name" class="img-responsive" />
+                </div>
+                <div class="caption">
+                    <h4><a href="/MenuItem-@menuItem.Name-@menuItem.Id">@menuItem.Name</a></h4>
+                    @*<div class="description">
+                            We are so lucky living in such a wonderful time. Our almost unlimited ...
+                        </div>*@
+                    <div class="price">
+                        <span class="price-new">$ @System.Math.Round(@menuItem.Price.Value, 0)</span>
+                        @*<span class="price-old">$249.50</span>*@
+                    </div>
+                    <div class="cart-button">
+                        <button type="button" class="btn btn-cart btnAddToCart" onclick="AddToCart(@menuItem.Id)">
+                            Add to cart
+                            <i class="fa fa-shopping-cart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>
+
+<div id="homePagignation"></div>
+
+@section scripts
+{
+    <script>
+        $('#homePagignation').bootpag({
+            total: '@Model.TotalPage',
+            page: '@Model.CurrentPage',
+            maxVisible: 10
+        }).on('page', function (event, num) {
+            window.location.href = "/page-" + num;
+        });
+    </script>
+}
+
